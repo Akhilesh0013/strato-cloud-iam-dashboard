@@ -115,13 +115,6 @@ A `daysSince` value of `-1` means no date was recorded for that field (e.g. a us
 ---
 
 ## Design decisions and tradeoffs
-
-**Why compute days in Go instead of React?**
-The day counts need to reflect today's date, not the date the data was written. Doing it server-side in `buildUser()` means the frontend never has to think about date math, it just receives numbers and renders them. It also means the business logic lives in one place.
-
-**Why hardcode the data instead of using a database?**
-The scope of the assignment is about the API contract and the frontend rendering, not data persistence. In a real system this would call something like AWS IAM `ListUsers` or hit a database. Using a hardcoded slice in `data.go` keeps the focus where it belongs and makes the project easy to run without any external dependencies.
-
 **Why put `stalePassword` and `inactiveUser` flags on the API response?**
 I could have had React check `daysSincePasswordChange > 365` itself, but that would spread the threshold logic across both the frontend and backend. Keeping it in `buildUser()` means if the thresholds ever change, there's only one place to update.
 
