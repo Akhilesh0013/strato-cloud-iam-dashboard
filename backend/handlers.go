@@ -6,19 +6,19 @@ import (
 )
 
 func handleGetUsers(w http.ResponseWriter, r *http.Request) {
-	// Only allow GET
+    // Allowing only GET
 	if r.Method != http.MethodGet {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
-	// Build the computed user list from raw data
+
 	users := make([]User, len(rawUsers))
 	for i, raw := range rawUsers {
 		users[i] = buildUser(raw)
 	}
 
-	// Tell the browser this is JSON
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
