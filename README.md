@@ -82,8 +82,6 @@ npm run dev
 
 Open `http://localhost:5173` in your browser.
 
-> The Vite dev server automatically proxies `/api/*` requests to `localhost:8080`, so you don't need to configure anything.
-
 ---
 
 ## API
