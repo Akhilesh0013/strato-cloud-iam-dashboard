@@ -113,7 +113,7 @@ A `daysSince` value of `-1` means no date was recorded for that field (e.g. a us
 ---
 
 ## Design decisions and tradeoffs
-**Why put `stalePassword` and `inactiveUser` flags on the API response?**
+** `stalePassword` and `inactiveUser` flags on the API response?**
 I could have had React check `daysSincePasswordChange > 365` itself, but that would spread the threshold logic across both the frontend and backend. Keeping it in `buildUser()` means if the thresholds ever change, there's only one place to update.
 
 **CORS middleware vs Vite proxy**
