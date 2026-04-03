@@ -8,6 +8,8 @@ func corsMiddleware(next http.HandlerFunc) http.HandlerFunc {
 		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
+		// CORS headers 
+
 
 		if r.Method == http.MethodOptions {
 			w.WriteHeader(http.StatusOK)
